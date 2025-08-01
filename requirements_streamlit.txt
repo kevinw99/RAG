@@ -1,0 +1,6 @@
+# Streamlit Chat Interface Requirements
+# Install with: pip install -r requirements_streamlit.txt
+
+streamlit>=1.30.0
+requests>=2.31.0
+pandas>=2.0.0

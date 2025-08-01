@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+logs/
+data/indices/
+data/processed/
+chat_history/
+.DS_Store
+.idea/

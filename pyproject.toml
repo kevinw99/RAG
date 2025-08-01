@@ -1,0 +1,189 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "rag-system"
+version = "0.1.0"
+description = "Production-ready RAG system optimized for 612MB document library"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [
+    {name = "RAG System", email = "rag@example.com"},
+]
+keywords = ["rag", "retrieval", "generation", "nlp", "langchain"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    # Core RAG Framework
+    "langchain>=0.1.0,<0.2.0",
+    "langchain-community>=0.0.20",
+    "langchain-core>=0.1.0",
+    "langchain-openai>=0.0.5",
+    "langchain-anthropic>=0.1.0",
+    
+    # Vector Storage - ChromaDB optimized for 612MB dataset
+    "chromadb>=0.4.20",
+    
+    # Local Embeddings - Zero ongoing costs vs $200-400/month
+    "sentence-transformers>=2.2.0",
+    
+    # Document Processing - Multi-format support
+    "PyPDF2>=3.0.0",
+    "python-docx>=0.8.11",
+    "beautifulsoup4>=4.12.0",
+    "markdown>=3.5.0",
+    "unstructured>=0.10.0",
+    
+    # Text Processing and Search
+    "rank-bm25>=0.2.2",
+    "nltk>=3.8.0",
+    "spacy>=3.7.0",
+    
+    # Evaluation Framework
+    "ragas>=0.1.0",
+    "datasets>=2.14.0",
+    
+    # API and CLI
+    "fastapi>=0.104.0",
+    "uvicorn[standard]>=0.24.0",
+    "httpx>=0.25.0",
+    "click>=8.1.0",
+    "rich>=13.7.0",
+    "pydantic>=2.5.0",
+    "pydantic-settings>=2.1.0",
+    
+    # Monitoring and Performance
+    "psutil>=5.9.0",
+    "tqdm>=4.66.0",
+    "prometheus-client>=0.19.0",
+    
+    # Utilities
+    "python-multipart>=0.0.6",
+    "aiofiles>=23.2.0",
+    "asyncio>=3.4.3",
+    "typing-extensions>=4.8.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    # Testing
+    "pytest>=7.4.0",
+    "pytest-asyncio>=0.21.0",
+    "pytest-cov>=4.1.0",
+    "pytest-mock>=3.12.0",
+    "httpx>=0.25.0",
+    
+    # Code Quality
+    "ruff>=0.1.6",
+    "mypy>=1.7.0",
+    "black>=23.11.0",
+    
+    # Documentation
+    "mkdocs>=1.5.0",
+    "mkdocs-material>=9.4.0",
+    
+    # Load Testing
+    "locust>=2.17.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/rag-system/rag-system"
+Documentation = "https://rag-system.readthedocs.io/"
+Repository = "https://github.com/rag-system/rag-system.git"
+"Bug Tracker" = "https://github.com/rag-system/rag-system/issues"
+
+[project.scripts]
+rag = "rag_system.api.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["rag_system"]
+
+[tool.ruff]
+target-version = "py39"
+line-length = 88
+extend-select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+    "B",   # flake8-bugbear
+    "C4",  # flake8-comprehensions
+    "UP",  # pyupgrade
+]
+ignore = [
+    "E501",  # line too long, handled by black
+    "B008",  # do not perform function calls in argument defaults
+    "C901",  # too complex
+]
+
+[tool.ruff.per-file-ignores]
+"__init__.py" = ["F401"]
+"tests/**/*" = ["S101", "D"]
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_unreachable = true
+strict_equality = true
+
+[[tool.mypy.overrides]]
+module = [
+    "chromadb.*",
+    "sentence_transformers.*",
+    "rank_bm25.*",
+    "ragas.*",
+    "nltk.*",
+    "spacy.*",
+    "unstructured.*",
+]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q --strict-markers --strict-config"
+testpaths = ["tests"]
+asyncio_mode = "auto"
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "integration: marks tests as integration tests",
+    "unit: marks tests as unit tests",
+    "evaluation: marks tests as evaluation tests",
+]
+
+[tool.coverage.run]
+source = ["rag_system"]
+omit = ["tests/*", "rag_system/__init__.py"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if self.debug:",
+    "if settings.DEBUG",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if 0:",
+    "if __name__ == .__main__.:",
+    "class .*\\bProtocol\\):",
+    "@(abc\\.)?abstractmethod",
+]
