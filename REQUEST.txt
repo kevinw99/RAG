@@ -1,0 +1,51 @@
+develop a RAG (Retrieval-Augmented Generation) system that can answer questions based on a given set of documents.
+The documents are provided in a directory.
+
+
+        15 +  class DocumentType(Enum):
+        16 +      """Supported document formats."""
+        17 +      PDF = "pdf"
+        18 +      DOCX = "docx"
+        19 +      TXT = "txt"
+
+
+1. why only 251 documents are ingested? isn't it total of 1,566 documents?
+2. I don't see any .doc files getting ingested, why?
+
+Can you research on these 2 topics, don't make code change
+ 1. Agentic RAG? what needs to be done to implement it from
+2.  multi-source, multi-granularity RAG system that can:
+
+   Answer high-level questions based on product requirements/specs
+
+   Answer technical/developer-level questions based on the codebase
+
+   Correlate requirements/specifications with actual implementation details
+Input Example:
+"Where is the spec-defined retry logic for payment failures implemented?"
+
+Output Example:
+"The retry logic is defined in Payment Handling Spec v3.1, section 4.2.2: 'Up to 3 retries in case of network failures.'
+
+This is implemented in payments/retry_handler.py, class RetryPolicy, method execute_with_backoff().
+
+Tests can be found in tests/payment/test_retry_policy.py."
+
+
+ 💡 Quick Start Options:
+
+  Option 1: All-in-One Start
+  python start_chat.py
+
+  Option 2: Manual Start
+  # Terminal 1 (if not already running)
+  python start_server.py
+
+  # Terminal 2
+  streamlit run streamlit_chat.py
+
+Another source of information is the confluence page. However our company use zscaler and Okta to manage access to
+. Do you think we can have a crawler to crawl the confluence page even with zscaler and Okta in place?
+
+Please do not run the crawler before I approve it.
+Can you modify the code to show how many space

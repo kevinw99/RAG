@@ -1,0 +1,66 @@
+WARNING:root:Prometheus client not available - metrics will be stored in memory only
+{"timestamp": "2025-07-31T14:54:19.286978", "level": "INFO", "logger": "rag_system.monitoring.logging_config", "message": "Logging configured: level=INFO, format=json, console=True, file=True", "file": "logging_config.py", "line": 158, "function": "configure_logging", "taskName": null}
+🚀 Starting RAG API Server...
+==================================================
+Server will be available at: http://localhost:8000
+API Documentation: http://localhost:8000/docs
+Health Check: http://localhost:8000/health
+==================================================
+INFO:     Will watch for changes in these directories: ['/Users/kweng/AI/RAG']
+INFO:     Started server process [28732]
+INFO:     Waiting for application startup.
+{"timestamp": "2025-07-31T14:54:19.336520", "level": "INFO", "logger": "rag_system.api", "message": "Starting RAG API server...", "file": "server.py", "line": 136, "function": "lifespan", "taskName": "Task-2"}
+{"timestamp": "2025-07-31T14:54:19.336710", "level": "INFO", "logger": "rag_system.core.pipeline", "message": "RAGPipeline created: collection=rag_documents", "file": "pipeline.py", "line": 71, "function": "__init__", "taskName": "Task-2"}
+{"timestamp": "2025-07-31T14:54:19.336755", "level": "INFO", "logger": "rag_system.core.pipeline", "message": "Initializing RAG pipeline components...", "file": "pipeline.py", "line": 84, "function": "initialize", "taskName": "Task-2"}
+{"timestamp": "2025-07-31T14:54:19.336806", "level": "INFO", "logger": "rag_system.core.document_processor", "message": "DocumentProcessor initialized: chunk_size=1000, chunk_overlap=100, batch_size=1000", "file": "document_processor.py", "line": 63, "function": "__init__", "taskName": "Task-2"}
+{"timestamp": "2025-07-31T14:54:19.483579", "level": "INFO", "logger": "rag_system.storage.vector_store", "message": "Loading embedding model: sentence-transformers/all-MiniLM-L6-v2", "file": "vector_store.py", "line": 69, "function": "__init__", "taskName": "Task-2"}
+{"timestamp": "2025-07-31T14:54:22.422909", "level": "INFO", "logger": "rag_system.storage.vector_store", "message": "Loaded embedding model with dimension: 384", "file": "vector_store.py", "line": 74, "function": "__init__", "taskName": "Task-2"}
+{"timestamp": "2025-07-31T14:54:22.424878", "level": "INFO", "logger": "rag_system.storage.vector_store", "message": "Retrieved existing collection: rag_documents", "file": "vector_store.py", "line": 82, "function": "__init__", "taskName": "Task-2"}
+{"timestamp": "2025-07-31T14:54:22.428269", "level": "INFO", "logger": "rag_system.core.generator", "message": "ResponseGenerator initialized: anthropic/claude-3-haiku-20240307", "file": "generator.py", "line": 291, "function": "__init__", "taskName": "Task-2"}
+{"timestamp": "2025-07-31T14:54:22.543706", "level": "INFO", "logger": "rag_system.core.pipeline", "message": "Found 44287 existing chunks, initializing retriever...", "file": "pipeline.py", "line": 119, "function": "initialize", "taskName": "Task-2"}
+{"timestamp": "2025-07-31T14:54:22.543848", "level": "WARNING", "logger": "rag_system.core.retriever", "message": "No chunks provided for BM25. Will use vector search only.", "file": "retriever.py", "line": 247, "function": "__init__", "taskName": "Task-2"}
+{"timestamp": "2025-07-31T14:54:22.543900", "level": "INFO", "logger": "rag_system.core.retriever", "message": "Loading cross-encoder model: cross-encoder/ms-marco-MiniLM-L-6-v2", "file": "retriever.py", "line": 153, "function": "__init__", "taskName": "Task-2"}
+{"timestamp": "2025-07-31T14:54:24.132786", "level": "INFO", "logger": "rag_system.core.retriever", "message": "Cross-encoder model loaded successfully", "file": "retriever.py", "line": 156, "function": "__init__", "taskName": "Task-2"}
+{"timestamp": "2025-07-31T14:54:24.133257", "level": "INFO", "logger": "rag_system.core.retriever", "message": "HybridRetriever initialized: alpha=0.5, reranking=True", "file": "retriever.py", "line": 265, "function": "__init__", "taskName": "Task-2"}
+{"timestamp": "2025-07-31T14:54:24.133413", "level": "INFO", "logger": "rag_system.core.pipeline", "message": "Retriever initialized with existing chunks", "file": "pipeline.py", "line": 127, "function": "initialize", "taskName": "Task-2"}
+{"timestamp": "2025-07-31T14:54:24.133590", "level": "INFO", "logger": "rag_system.core.pipeline", "message": "Pipeline initialized successfully in 4.80s", "file": "pipeline.py", "line": 138, "function": "initialize", "taskName": "Task-2"}
+{"timestamp": "2025-07-31T14:54:24.133715", "level": "INFO", "logger": "rag_system.api", "message": "RAG pipeline initialized successfully", "file": "server.py", "line": 141, "function": "lifespan", "taskName": "Task-2"}
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+{"timestamp": "2025-07-31T14:54:28.119583", "level": "INFO", "logger": "rag_system.api", "message": "GET /health - Request started", "file": "server.py", "line": 192, "function": "monitoring_middleware", "taskName": "Task-3", "request_id": "49299fd8"}
+{"timestamp": "2025-07-31T14:54:29.138052", "level": "INFO", "logger": "rag_system.storage.vector_store", "message": "Loading embedding model: sentence-transformers/all-MiniLM-L6-v2", "file": "vector_store.py", "line": 69, "function": "__init__", "taskName": "starlette.middleware.base.BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.coro"}
+{"timestamp": "2025-07-31T14:54:31.347088", "level": "INFO", "logger": "rag_system.storage.vector_store", "message": "Loaded embedding model with dimension: 384", "file": "vector_store.py", "line": 74, "function": "__init__", "taskName": "starlette.middleware.base.BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.coro"}
+{"timestamp": "2025-07-31T14:54:31.348489", "level": "INFO", "logger": "rag_system.storage.vector_store", "message": "Retrieved existing collection: rag_documents", "file": "vector_store.py", "line": 82, "function": "__init__", "taskName": "starlette.middleware.base.BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.coro"}
+/opt/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py:1762: FutureWarning: `encoder_attention_mask` is deprecated and will be removed in version 4.55.0 for `BertSdpaSelfAttention.forward`.
+  return forward_call(*args, **kwargs)
+{"timestamp": "2025-07-31T14:54:33.686854", "level": "INFO", "logger": "rag_system.monitoring", "message": "Health checks completed in 5.567s - Status: degraded", "file": "health.py", "line": 103, "function": "run_health_checks", "taskName": "starlette.middleware.base.BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.coro"}
+{"timestamp": "2025-07-31T14:54:33.747133", "level": "INFO", "logger": "rag_system.api", "message": "GET /health - Completed in 5.627s with status 200", "file": "server.py", "line": 210, "function": "monitoring_middleware", "taskName": "Task-3", "request_id": "49299fd8"}
+{"timestamp": "2025-07-31T14:54:33.747488", "level": "INFO", "logger": "rag_system.api", "message": "GET /documents - Request started", "file": "server.py", "line": 192, "function": "monitoring_middleware", "taskName": "Task-6", "request_id": "f08cc8ee"}
+{"timestamp": "2025-07-31T14:54:33.750273", "level": "INFO", "logger": "rag_system.api", "message": "GET /documents - Completed in 0.003s with status 200", "file": "server.py", "line": 210, "function": "monitoring_middleware", "taskName": "Task-6", "request_id": "f08cc8ee"}
+INFO:     127.0.0.1:62319 - "GET /documents?limit=100&offset=0 HTTP/1.1" 200 OK
+{"timestamp": "2025-07-31T14:54:40.713464", "level": "INFO", "logger": "rag_system.api", "message": "GET /health - Request started", "file": "server.py", "line": 192, "function": "monitoring_middleware", "taskName": "Task-9", "request_id": "ce96a0b2"}
+{"timestamp": "2025-07-31T14:54:41.735322", "level": "INFO", "logger": "rag_system.storage.vector_store", "message": "Loading embedding model: sentence-transformers/all-MiniLM-L6-v2", "file": "vector_store.py", "line": 69, "function": "__init__", "taskName": "starlette.middleware.base.BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.coro"}
+{"timestamp": "2025-07-31T14:54:43.507461", "level": "INFO", "logger": "rag_system.storage.vector_store", "message": "Loaded embedding model with dimension: 384", "file": "vector_store.py", "line": 74, "function": "__init__", "taskName": "starlette.middleware.base.BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.coro"}
+{"timestamp": "2025-07-31T14:54:43.512885", "level": "INFO", "logger": "rag_system.storage.vector_store", "message": "Retrieved existing collection: rag_documents", "file": "vector_store.py", "line": 82, "function": "__init__", "taskName": "starlette.middleware.base.BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.coro"}
+{"timestamp": "2025-07-31T14:54:45.628055", "level": "INFO", "logger": "rag_system.monitoring", "message": "Health checks completed in 4.914s - Status: healthy", "file": "health.py", "line": 103, "function": "run_health_checks", "taskName": "starlette.middleware.base.BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.coro"}
+{"timestamp": "2025-07-31T14:54:45.633183", "level": "INFO", "logger": "rag_system.api", "message": "GET /health - Completed in 4.920s with status 200", "file": "server.py", "line": 210, "function": "monitoring_middleware", "taskName": "Task-9", "request_id": "ce96a0b2"}
+INFO:     127.0.0.1:62423 - "GET /health HTTP/1.1" 200 OK
+{"timestamp": "2025-07-31T14:54:45.636073", "level": "INFO", "logger": "rag_system.api", "message": "POST /query - Request started", "file": "server.py", "line": 192, "function": "monitoring_middleware", "taskName": "Task-12", "request_id": "e8a475ea"}
+{"timestamp": "2025-07-31T14:54:45.638002", "level": "INFO", "logger": "rag_system.core.pipeline", "message": "Pipeline already initialized", "file": "pipeline.py", "line": 80, "function": "initialize", "taskName": "starlette.middleware.base.BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.coro"}
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+{"timestamp": "2025-07-31T14:54:48.996939", "level": "INFO", "logger": "rag_system.api", "message": "POST /query - Completed in 3.361s with status 200", "file": "server.py", "line": 210, "function": "monitoring_middleware", "taskName": "Task-12", "request_id": "e8a475ea"}
+INFO:     127.0.0.1:62431 - "POST /query HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+{"timestamp": "2025-07-31T14:55:28.918761", "level": "INFO", "logger": "rag_system.api", "message": "Shutting down RAG API server...", "file": "server.py", "line": 149, "function": "lifespan", "taskName": "Task-2"}
+INFO:     Application shutdown complete.
+INFO:     Finished server process [28732]
+/opt/miniconda3/lib/python3.12/multiprocessing/resource_tracker.py:254: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
